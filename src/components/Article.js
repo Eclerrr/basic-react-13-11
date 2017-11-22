@@ -46,14 +46,14 @@ class Article extends PureComponent {
         const body = isOpen && (
             <div>
                 <section>{article.text}</section>
-                <CommentList comments = {article.comments}/>
+                <CommentList comments = {article.comments || []}/>
             </div>
         )
         return (
             <div>
                 <h2>
                     {article.title}
-                    <button onClick={() => toggleOpen(article.id)}>
+                    <button onClick={() => toggleOpen(article.id,isOpen)}>
                         {isOpen ? 'close' : 'open'}
                     </button>
                 </h2>
